@@ -38,6 +38,7 @@ function HomeScreen(props) {
         </View>
         <Animated.FlatList
           data={dummyData.promos}
+          contentContainerStyle={{ just: "center" }}
           horizontal
           pagingEnabled
           scrollEventThrottle={5}
@@ -50,6 +51,7 @@ function HomeScreen(props) {
                   flex: 1,
                   justifyContent: "center",
                   alignItems: "center",
+                  marginHorizontal: 50,
                 }}
               >
                 <Image
@@ -58,23 +60,26 @@ function HomeScreen(props) {
                   height={50}
                   width={50}
                 />
-                <Text style={styles.rewardcuptxt}>{item.name}</Text>
+                <Text style={styles.itemname}>{item.name}</Text>
                 <Text style={styles.rewardcuptxt}>{item.description}</Text>
                 <Text style={styles.rewardcuptxt}>
                   Calories: {item.calories}
                 </Text>
-                <View
-                  style={{
-                    backgroundColor: "green",
-                    height: 40,
-                    width: 100,
-                    borderRadius: 24,
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
-                  <Text style={styles.rewardcuptxt}>Order now</Text>
-                </View>
+                <TouchableOpacity>
+                  <View
+                    style={{
+                      backgroundColor: "green",
+                      height: 50,
+                      width: 100,
+                      borderRadius: 24,
+                      justifyContent: "center",
+                      marginTop: 20,
+                      alignItems: "center",
+                    }}
+                  >
+                    <Text style={styles.rewardcuptxt}>Order now</Text>
+                  </View>
+                </TouchableOpacity>
               </View>
             );
           }}
@@ -113,6 +118,12 @@ function HomeScreen(props) {
 }
 
 const styles = StyleSheet.create({
+  itemname: {
+    color: "red",
+    fontSize: 20,
+    fontWeight: "bold",
+    paddingBottom: 10,
+  },
   selectedTab: {
     position: "absolute",
     height: "100%",
@@ -122,7 +133,7 @@ const styles = StyleSheet.create({
     backgroundColor: "green",
   },
   tabs: {
-    paddingHorizontal: 15,
+    paddingHorizontal: 20,
     alignItems: "center",
     justifyContent: "center",
     height: 40,
@@ -132,8 +143,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     marginTop: 24,
+    width: "95%",
     backgroundColor: "black",
     borderRadius: 12,
+    marginHorizontal: 15,
   },
   rewardpointcontainer: {
     marginTop: 5,
@@ -198,6 +211,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+    backgroundColor: "#2C2C2C",
   },
 });
 
